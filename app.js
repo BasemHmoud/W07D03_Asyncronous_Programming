@@ -17,6 +17,14 @@ const readFile = () => {
   });
 };
 readFile();
+const writeFile = () => {
+fs.writeFile("./text.txt","welcome to meraki academ",(err)=>{
+    if(err) throw err;
+    console.log("The file has been saved"); 
+}) 
+
+};
+writeFile();
 app.get("/", (req, res) => {
   res.status(200);
   res.send("hi");
