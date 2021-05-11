@@ -52,6 +52,15 @@ const getPostAsync = async (id) => {
   }
 };
 getPostAsync(30);
+
+//practice q1
+const appendToFile = (data) => {
+    fs.appendFile("./data.txt",data,(err)=>{
+        if(err) throw err;
+        console.log(`The ${data} was appended to file!`)
+    })
+  };
+  appendToFile("hello")
 app.listen(port, () => {
   console.log(`server run on port ${port}`);
 });
