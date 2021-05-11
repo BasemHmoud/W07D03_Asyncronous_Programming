@@ -28,21 +28,30 @@ const writeFile = () => {
 writeFile();
 //puls check q4
 const getPost = (id) => {
-    
-        
-        axios
-        .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        .then((response)=>{
-            console.log(response.data);
-        })
-        .catch((err)=>{
-            throw err
-        })
-     
+  axios
+    .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((err) => {
+      throw err;
+    });
 };
 
 getPost(50);
-
+//puls check q5
+const getPostAsync = async (id) => {
+  try {
+    let response;
+    response = await axios.get(
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    );
+    console.log(response);
+  } catch (err) {
+    throw err;
+  }
+};
+getPostAsync(30);
 app.listen(port, () => {
   console.log(`server run on port ${port}`);
 });
