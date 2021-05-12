@@ -76,6 +76,31 @@ const copyFile = (fileName) => {
   });
 };
 copyFile("data.txt");
+
+//practice q3
+const post = JSON.stringify({
+  title: "JavaScript Basics",
+  body: "This post contains information about javaScript ",
+  // the id of the user who is going to create the post
+  userId: 1,
+});
+//get =select
+//post =insert
+//put=update
+//delete=delete
+const createPost = (post) => {
+  axios
+    .post("https://jsonplaceholder.typicode.com/posts", post)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+createPost(post);
+
+
 app.listen(port, () => {
   console.log(`server run on port ${port}`);
 });
