@@ -100,7 +100,26 @@ const createPost = (post) => {
 };
 createPost(post);
 
+//practice q4
+const newPost = JSON.stringify({
+  // the post id that we want to update, change it when trying to update another post
+  id: 1,
+  title: "Updated Title",
+  body: "Updated body",
+  userId: 1,
+});
 
+const updatePost = (postId, data) => {
+  axios
+    .put(`https://jsonplaceholder.typicode.com/posts/${postId}`, data)
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((err) => {
+      throw err;
+    });
+};
+updatePost(1, newPost);
 app.listen(port, () => {
   console.log(`server run on port ${port}`);
 });
