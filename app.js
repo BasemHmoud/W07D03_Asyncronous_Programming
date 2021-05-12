@@ -54,13 +54,28 @@ const getPostAsync = async (id) => {
 getPostAsync(30);
 
 //practice q1
+//use to add data in file
 const appendToFile = (data) => {
-    fs.appendFile("./data.txt",data,(err)=>{
-        if(err) throw err;
-        console.log(`The ${data} was appended to file!`)
-    })
-  };
-  appendToFile("hello")
+  //appendFile have 3 parameter :path , data , CB
+  fs.appendFile("./data.txt", data, (err) => {
+    if (err) throw err;
+    console.log(`The ${data} was appended to file!`);
+  });
+};
+//call function and send data
+appendToFile(" hello every body");
+
+//practice q2
+
+const copyFile = (fileName) => {
+  //fileName اسم الملف مراد نسخه
+  //copy_of_data.txt انشاء ملف  اسمه
+  fs.copyFile(fileName, `copy_of_${fileName}`, (err) => {
+    if (err) throw err;
+    console.log("successfully");
+  });
+};
+copyFile("data.txt");
 app.listen(port, () => {
   console.log(`server run on port ${port}`);
 });
