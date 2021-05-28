@@ -120,6 +120,32 @@ const updatePost = (postId, data) => {
     });
 };
 updatePost(1, newPost);
+
+////////////////////////////////////////////////////////////////
+
+const axios = require("axios");
+
+const getUsers  = async () => {
+  // using try/catch for error handling
+  try {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    console.log(response.data);
+  } catch (err) {
+    throw err;
+  }
+};
+
+getUsers ();
+
+
+
+////////////////////////////////////////////////////////
+
+
+
+
 app.listen(port, () => {
   console.log(`server run on port ${port}`);
 });
